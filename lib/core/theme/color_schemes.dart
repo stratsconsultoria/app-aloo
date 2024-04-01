@@ -28,4 +28,4 @@ ColorScheme lightColorScheme = const ColorScheme(
   inversePrimary: AppColors.primaryColor,
   shadow: AppColors.primaryColor,
   surfaceTint: AppColors.primaryColor,
-);
+).copyWith(secondary: AppColors.softLightColor);

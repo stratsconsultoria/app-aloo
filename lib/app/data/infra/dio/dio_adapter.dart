@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../../../core/shared/api.dart';
+import '../../../../core/shared/constants/api.dart';
 import '../http/http_client.dart';
 import '../http/http_error.dart';
 
