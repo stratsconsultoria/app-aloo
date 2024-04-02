@@ -36,7 +36,7 @@ class CompaniesListRepository implements ICompaniesListRepository {
       );
       if (httpResponse['success'] == 1) {
         List<CompanyEntity> companies = <CompanyEntity>[];
-        companies = (httpResponse['data'] as List<dynamic>)
+        companies = (httpResponse['empresas'] as List<dynamic>)
             .map((e) => CompanyModel.fromJson(e as Map<String, dynamic>).toEntity())
             .toList();
         return Right(companies);

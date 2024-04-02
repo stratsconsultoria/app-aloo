@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../components/atoms/atoms.dart';
+import '../../components/components.dart';
 import 'company_list_controller.dart';
 
 class CompaniesListPage extends GetView<CompaniesListController> {
@@ -14,7 +14,7 @@ class CompaniesListPage extends GetView<CompaniesListController> {
       appBar: AppBar(
         title: const Text('SELECIONE SUA EMPRESA'),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
@@ -25,6 +25,22 @@ class CompaniesListPage extends GetView<CompaniesListController> {
               suffixIcon: const Icon(Icons.search),
             ),
             const SizedBox(height: 24),
+            Visibility(
+              child: Obx(
+                () => GridView.builder(
+                  shrinkWrap: true,
+                  itemCount: controller.companies.length,
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 200,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    return CompanyCard(company: controller.companies[index]);
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),
