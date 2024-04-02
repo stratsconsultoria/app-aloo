@@ -9,5 +9,5 @@ class Api {
   static const login = 'login.php';
 
   // busness
-  static const companies = 'listEmpresas.php';
+  static const listCompanies = 'listEmpresas.php';
 }

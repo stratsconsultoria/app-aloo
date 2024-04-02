@@ -1,5 +1,5 @@
-class CompanyModel {
-  const CompanyModel({
+class CompanyEntity {
+  const CompanyEntity({
     required this.nome,
     required this.cnpj,
     required this.id,

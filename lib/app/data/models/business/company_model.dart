@@ -1,12 +1,14 @@
+import '../../../domain/entities/entities.dart';
+
 class CompanyModel {
+  String id;
   String nome;
   String cnpj;
-  String id;
 
   CompanyModel({
+    required this.id,
     required this.nome,
     required this.cnpj,
-    required this.id,
   });
 
   factory CompanyModel.fromJson(Map<String, dynamic> json) {
@@ -24,4 +26,10 @@ class CompanyModel {
       'id': id,
     };
   }
+
+  CompanyEntity toEntity() => CompanyEntity(
+        id: id,
+        nome: nome,
+        cnpj: cnpj,
+      );
 }
