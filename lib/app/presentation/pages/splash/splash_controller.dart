@@ -24,7 +24,12 @@ class SplashController extends GetxController {
         overlays: SystemUiOverlay.values,
       );
       if (isLogged) {
-        Get.offAndToNamed(Routes.home);
+        bool companySelected = await CacheAdapter().read(CacheString.currentCompany) != null;
+        if (companySelected) {
+          Get.offAndToNamed(Routes.home);
+        } else {
+          Get.offAndToNamed(Routes.company);
+        }
       } else {
         Get.offAndToNamed(Routes.login);
       }

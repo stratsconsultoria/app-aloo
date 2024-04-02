@@ -4,8 +4,9 @@ import 'color_schemes.dart';
 import 'colors.dart';
 
 TextStyle appBarTextStyle = const TextStyle(
-  fontSize: 18.0,
+  fontSize: 16.0,
   fontWeight: FontWeight.bold,
+  color: AppColors.primaryColor,
 );
 
 TextStyle defaultText = const TextStyle();
@@ -44,10 +45,11 @@ abstract class AppTheme {
     scaffoldBackgroundColor: AppColors.backgroundColor,
     cardColor: AppColors.surfaceColor,
     dialogBackgroundColor: AppColors.surfaceColor,
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       backgroundColor: AppColors.surfaceColor,
       scrolledUnderElevation: 0,
       elevation: 0,
+      titleTextStyle: appBarTextStyle,
     ),
     iconTheme: const IconThemeData(
       color: AppColors.primaryColor,

@@ -26,11 +26,11 @@ class LoginController extends GetxController {
     UserEntity? account = await loginUsecase.call(
       emailController.value.text,
       passwordController.value.text,
-      '',
+      'id do device para push notification',
     );
     if (account != null) {
       await authController.setAccount(account);
-      Get.offAllNamed(Routes.home);
+      Get.offAllNamed(Routes.company);
     }
     isLoading.value = false;
   }

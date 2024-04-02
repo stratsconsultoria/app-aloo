@@ -1,4 +1,4 @@
-import 'package:app_aloo/app/domain/entities/entities.dart';
+import '../../../domain/entities/entities.dart';
 
 class UserData {
   final int success;

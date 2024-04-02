@@ -32,11 +32,11 @@ class AuthController extends GetxController {
       expireAt: newUser.expireAt,
       success: 1,
       jwt: '',
-      nome: '',
-      permissao: '',
-      master: '',
-      empresa: '',
-      pushId: '',
+      nome: newUser.nome,
+      permissao: newUser.permissao,
+      master: newUser.master,
+      empresa: newUser.email,
+      pushId: newUser.pushId ?? '',
     );
     account.value = newUser;
     await CacheAdapter().writeStorage(

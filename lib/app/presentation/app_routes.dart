@@ -1,3 +1,6 @@
+import 'package:app_aloo/app/presentation/pages/company/company_bindings.dart';
+import 'package:app_aloo/app/presentation/pages/company/company_page.dart';
+import 'package:app_aloo/app/presentation/pages/profile/profile_bindings.dart';
 import 'package:get/get.dart';
 
 import '../../core/configs/app_bindings.dart';
@@ -5,6 +8,7 @@ import 'pages/home/home_bindings.dart';
 import 'pages/home/home_page.dart';
 import 'pages/login/login_bindings.dart';
 import 'pages/login/login_page.dart';
+import 'pages/profile/profile_page.dart';
 import 'pages/splash/splash_bindings.dart';
 import 'pages/splash/splash_page.dart';
 
@@ -12,6 +16,8 @@ abstract class Routes {
   static const initial = '/';
   static const home = '/home';
   static const login = '/login';
+  static const company = '/company';
+  static const profile = '/profile';
 }
 
 abstract class AppRoutes {
@@ -36,6 +42,18 @@ abstract class AppRoutes {
       page: () => const HomePage(),
       transition: Transition.native,
       binding: HomeBindings(),
+    ),
+    GetPage(
+      name: Routes.company,
+      page: () => const CompanyPage(),
+      transition: Transition.native,
+      binding: CompanyBindings(),
+    ),
+    GetPage(
+      name: Routes.profile,
+      page: () => const ProfilePage(),
+      transition: Transition.native,
+      binding: ProfileBindings(),
     ),
   ];
 }
