@@ -7,4 +7,7 @@ class Api {
 
   // Auth
   static const login = 'login.php';
+
+  // busness
+  static const companies = 'listEmpresas.php';
 }

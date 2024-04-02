@@ -1,5 +1,5 @@
-import 'package:app_aloo/app/presentation/pages/company/company_bindings.dart';
-import 'package:app_aloo/app/presentation/pages/company/company_page.dart';
+import 'package:app_aloo/app/presentation/pages/companies_list/company_list_bindings.dart';
+import 'package:app_aloo/app/presentation/pages/companies_list/company_list_page.dart';
 import 'package:app_aloo/app/presentation/pages/profile/profile_bindings.dart';
 import 'package:get/get.dart';
 
@@ -45,9 +45,9 @@ abstract class AppRoutes {
     ),
     GetPage(
       name: Routes.company,
-      page: () => const CompanyPage(),
+      page: () => const CompaniesListPage(),
       transition: Transition.native,
-      binding: CompanyBindings(),
+      binding: CompaniesListBindings(),
     ),
     GetPage(
       name: Routes.profile,

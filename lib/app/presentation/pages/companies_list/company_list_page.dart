@@ -1,10 +1,11 @@
-import '../../components/atoms/atoms.dart';
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'company_controller.dart';
+import 'package:get/get.dart';
 
-class CompanyPage extends GetView<CompanyController> {
-  const CompanyPage({super.key});
+import '../../components/atoms/atoms.dart';
+import 'company_list_controller.dart';
+
+class CompaniesListPage extends GetView<CompaniesListController> {
+  const CompaniesListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
