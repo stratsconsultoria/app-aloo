@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'circuits_controller.dart';
 
 class CircuitsPage extends GetView<CircuitsController> {
-  const CircuitsPage({Key? key}) : super(key: key);
+  const CircuitsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,19 +1,20 @@
-import 'pages/companies_list/company_list_bindings.dart';
-import 'pages/companies_list/company_list_page.dart';
-import 'pages/profile/profile_bindings.dart';
-import 'pages/start/screens/circuits/circuits_bindings.dart';
-import 'pages/start/screens/home/home_bindings.dart';
-import 'pages/start/screens/requisitions/requisitions_bindings.dart';
 import 'package:get/get.dart';
 
 import '../../core/configs/app_bindings.dart';
-import 'pages/start/start_bindings.dart';
-import 'pages/start/start_page.dart';
+import 'pages/companies_list/company_list_bindings.dart';
+import 'pages/companies_list/company_list_page.dart';
 import 'pages/login/login_bindings.dart';
 import 'pages/login/login_page.dart';
+import 'pages/profile/profile_bindings.dart';
 import 'pages/profile/profile_page.dart';
+import 'pages/requisition_details/requisition_details_page.dart';
 import 'pages/splash/splash_bindings.dart';
 import 'pages/splash/splash_page.dart';
+import 'pages/start/screens/circuits/circuits_bindings.dart';
+import 'pages/start/screens/home/home_bindings.dart';
+import 'pages/start/screens/requisitions/requisitions_bindings.dart';
+import 'pages/start/start_bindings.dart';
+import 'pages/start/start_page.dart';
 
 abstract class Routes {
   static const initial = '/';
@@ -21,6 +22,7 @@ abstract class Routes {
   static const login = '/login';
   static const company = '/company';
   static const profile = '/profile';
+  static const requisitionDetails = '/requisitionDetails';
 }
 
 abstract class AppRoutes {
@@ -62,6 +64,12 @@ abstract class AppRoutes {
       page: () => const ProfilePage(),
       transition: Transition.native,
       binding: ProfileBindings(),
+    ),
+    GetPage(
+      name: Routes.requisitionDetails,
+      page: () => const RequisitionDetailsPage(),
+      transition: Transition.native,
+      binding: RequisitionsBindings(),
     ),
   ];
 }

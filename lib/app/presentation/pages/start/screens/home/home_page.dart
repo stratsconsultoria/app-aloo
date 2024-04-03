@@ -1,11 +1,12 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import '../../../../app_routes.dart';
 import '../../../../components/components.dart';
 import 'home_controller.dart';
 
 class HomePage extends GetView<HomeController> {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,41 @@ class HomePage extends GetView<HomeController> {
           ),
         ),
       ),
-      body: const SingleChildScrollView(),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              'Atendimentos recentemente abertos',
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+          ),
+          const SizedBox(height: 16),
+          SizedBox(
+            height: Get.width * 0.5,
+            child: Obx(
+              () => Visibility(
+                visible: controller.requisitionsIsLoading.isFalse,
+                replacement: const Center(child: CircularProgressIndicator()),
+                child: Obx(
+                  () => ListView.builder(
+                    itemCount: controller.requisitions.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return RequisitionCard(
+                        requisition: controller.requisitions[index],
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

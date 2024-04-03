@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'requisitions_controller.dart';
 
 class RequisitionsPage extends GetView<RequisitionsController> {
-  const RequisitionsPage({Key? key}) : super(key: key);
+  const RequisitionsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
