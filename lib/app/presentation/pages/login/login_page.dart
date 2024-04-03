@@ -1,7 +1,8 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import '../../components/components.dart';
-import './login_controller.dart';
+import 'login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {
   const LoginPage({super.key});

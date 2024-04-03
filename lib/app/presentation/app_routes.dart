@@ -1,11 +1,14 @@
-import 'package:app_aloo/app/presentation/pages/companies_list/company_list_bindings.dart';
-import 'package:app_aloo/app/presentation/pages/companies_list/company_list_page.dart';
-import 'package:app_aloo/app/presentation/pages/profile/profile_bindings.dart';
+import 'pages/companies_list/company_list_bindings.dart';
+import 'pages/companies_list/company_list_page.dart';
+import 'pages/profile/profile_bindings.dart';
+import 'pages/start/screens/circuits/circuits_bindings.dart';
+import 'pages/start/screens/home/home_bindings.dart';
+import 'pages/start/screens/requisitions/requisitions_bindings.dart';
 import 'package:get/get.dart';
 
 import '../../core/configs/app_bindings.dart';
-import 'pages/home/home_bindings.dart';
-import 'pages/home/home_page.dart';
+import 'pages/start/start_bindings.dart';
+import 'pages/start/start_page.dart';
 import 'pages/login/login_bindings.dart';
 import 'pages/login/login_page.dart';
 import 'pages/profile/profile_page.dart';
@@ -14,7 +17,7 @@ import 'pages/splash/splash_page.dart';
 
 abstract class Routes {
   static const initial = '/';
-  static const home = '/home';
+  static const start = '/home';
   static const login = '/login';
   static const company = '/company';
   static const profile = '/profile';
@@ -38,10 +41,15 @@ abstract class AppRoutes {
       binding: LoginBindings(),
     ),
     GetPage(
-      name: Routes.home,
-      page: () => const HomePage(),
+      name: Routes.start,
+      page: () => const StartPage(),
       transition: Transition.native,
-      binding: HomeBindings(),
+      bindings: [
+        StartBindings(),
+        CircuitsBindings(),
+        HomeBindings(),
+        RequisitionsBindings(),
+      ],
     ),
     GetPage(
       name: Routes.company,

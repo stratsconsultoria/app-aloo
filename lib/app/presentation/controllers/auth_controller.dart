@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import '../app_routes.dart';
 import 'package:get/get.dart';
 
 import '../../data/infra/cache/cache.dart';
 import '../../data/models/models.dart';
 import '../../domain/entities/entities.dart';
+import '../app_routes.dart';
 
 class AuthController extends GetxController {
   @override

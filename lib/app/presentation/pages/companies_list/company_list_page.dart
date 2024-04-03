@@ -25,19 +25,23 @@ class CompaniesListPage extends GetView<CompaniesListController> {
               suffixIcon: const Icon(Icons.search),
             ),
             const SizedBox(height: 24),
-            Visibility(
-              child: Obx(
-                () => GridView.builder(
-                  shrinkWrap: true,
-                  itemCount: controller.companies.length,
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
+            Obx(
+              () => Visibility(
+                visible: controller.companiesIsLoading.isFalse,
+                replacement: const Center(child: CircularProgressIndicator()),
+                child: Obx(
+                  () => GridView.builder(
+                    shrinkWrap: true,
+                    itemCount: controller.companies.length,
+                    gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 200,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20,
+                    ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return CompanyCard(company: controller.companies[index]);
+                    },
                   ),
-                  itemBuilder: (BuildContext context, int index) {
-                    return CompanyCard(company: controller.companies[index]);
-                  },
                 ),
               ),
             ),

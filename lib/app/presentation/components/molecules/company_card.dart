@@ -1,7 +1,7 @@
-import 'package:app_aloo/app/data/infra/cache/cache.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../data/infra/cache/cache.dart';
 import '../../../domain/entities/entities.dart';
 import '../../app_routes.dart';
 
@@ -16,11 +16,9 @@ class CompanyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future<void> setCurrentCompany() async {
-      await CacheAdapter().writeStorage(
-        CacheString.currentCompany,
-        company.id,
-      );
-      Get.offAllNamed(Routes.home);
+      await CacheAdapter().writeStorage(CacheString.companyId, company.id);
+      await CacheAdapter().writeStorage(CacheString.companyName, company.nome);
+      Get.offAllNamed(Routes.start);
     }
 
     return InkWell(
