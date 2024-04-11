@@ -17,7 +17,7 @@ class CustomIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       'assets/icons/$icon.svg',
-      color: color ?? Theme.of(context).primaryColor,
+      colorFilter: ColorFilter.mode(color ?? Theme.of(context).primaryColor, BlendMode.srcIn),
       height: size,
     );
   }

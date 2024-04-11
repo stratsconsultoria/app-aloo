@@ -55,73 +55,20 @@ class RequisitionCard extends StatelessWidget {
               ],
             ),
             const Divider(thickness: 0.3),
-            Row(
-              children: [
-                const FaIcon(FontAwesomeIcons.circleInfo),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      requisition.protocolo,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                    Text(
-                      'Protocolo',
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: Theme.of(context).colorScheme.primaryContainer,
-                            height: 0.8,
-                          ),
-                    ),
-                  ],
-                ),
-              ],
+            CustomListTile(
+              title: requisition.protocolo,
+              subTitle: 'Protocolo',
+              icon: const FaIcon(FontAwesomeIcons.circleInfo),
             ),
-            Row(
-              children: [
-                const FaIcon(FontAwesomeIcons.calendarDays),
-                const SizedBox(width: 8),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      requisition.abertura,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                    Text(
-                      'Data de abertura',
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: Theme.of(context).colorScheme.primaryContainer,
-                            height: 0.8,
-                          ),
-                    ),
-                  ],
-                ),
-              ],
+            CustomListTile(
+              title: requisition.abertura,
+              subTitle: 'Data de abertura',
+              icon: const FaIcon(FontAwesomeIcons.calendarDays),
             ),
-            Row(
-              children: [
-                const FaIcon(
-                  FontAwesomeIcons.gears,
-                  size: 16,
-                ),
-                const SizedBox(width: 8),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      requisition.status,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
-                    Text(
-                      'Status',
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: Theme.of(context).colorScheme.primaryContainer,
-                            height: 0.8,
-                          ),
-                    ),
-                  ],
-                ),
-              ],
+            CustomListTile(
+              title: requisition.status,
+              subTitle: 'Status',
+              icon: const FaIcon(FontAwesomeIcons.gears),
             ),
           ],
         ),

@@ -1,9 +1,27 @@
 import 'package:get/get.dart';
-import './requisition_details_controller.dart';
+
+import '../../../data/infra/http/http.dart';
+import '../../../data/repositories/repositories.dart';
+import '../../../domain/usecases/usecases.dart';
+import 'requisition_details_controller.dart';
 
 class RequisitionDetailsBindings implements Bindings {
   @override
   void dependencies() {
-    Get.put(RequisitionDetailsController(requisitionId: Get.arguments));
+    final IHttpClient httpClient = Get.find<IHttpClient>();
+
+    final RequisitionDetailsRepository requisitionDetailsRepo = RequisitionDetailsRepository(
+      httpClient: httpClient,
+    );
+
+    Get.lazyPut<RequisitionDetailsUsecase>(() => IRequisitionsDetailsUsecase(
+          repository: requisitionDetailsRepo,
+        ));
+
+    Get.put(RequisitionDetailsController(
+      requisitionId: Get.arguments,
+      authController: Get.find(),
+      requisitionDetailsUsecase: Get.find(),
+    ));
   }
 }

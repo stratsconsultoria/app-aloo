@@ -34,6 +34,7 @@ class DioAdapter implements IHttpClient {
 
     if (kDebugMode) {
       print('verify endpoint => $url');
+      print('verify api body => $jsonBody');
     }
 
     try {

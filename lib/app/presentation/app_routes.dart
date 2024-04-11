@@ -1,3 +1,4 @@
+import 'package:app_aloo/app/presentation/pages/requisition_details/requisition_details_bindings.dart';
 import 'package:get/get.dart';
 
 import '../../core/configs/app_bindings.dart';
@@ -69,7 +70,7 @@ abstract class AppRoutes {
       name: Routes.requisitionDetails,
       page: () => const RequisitionDetailsPage(),
       transition: Transition.native,
-      binding: RequisitionsBindings(),
+      binding: RequisitionDetailsBindings(),
     ),
   ];
 }

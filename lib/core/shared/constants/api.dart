@@ -11,5 +11,5 @@ class Api {
   // busness
   static const listCompanies = 'listEmpresas.php';
   static const listRequisitions = 'listAtendimentos.php';
-  static const listDetails = 'detailAtendimentos';
+  static const requisitionDetails = 'detailAtendimentos.php';
 }
