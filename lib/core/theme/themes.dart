@@ -63,10 +63,12 @@ abstract class AppTheme {
       bodyLarge: bodyLarge,
       displayLarge: appBarTextStyle,
     ),
-    inputDecorationTheme: const InputDecorationTheme(
-      focusedBorder: InputBorder.none,
-      enabledBorder: InputBorder.none,
-      labelStyle: TextStyle(
+    inputDecorationTheme: InputDecorationTheme(
+      focusedBorder: OutlineInputBorder(
+        borderSide: const BorderSide(width: 0.5),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      labelStyle: const TextStyle(
         color: AppColors.primaryColor,
       ),
     ),

@@ -72,9 +72,9 @@ class CustomButtom extends StatelessWidget {
             Text(
               label,
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: type != 'confirm'
-                        ? Theme.of(context).primaryColor
-                        : Theme.of(context).scaffoldBackgroundColor,
+                    color: type != 'seccond'
+                        ? Theme.of(context).scaffoldBackgroundColor
+                        : Theme.of(context).primaryColor,
                   ),
             ),
           ],

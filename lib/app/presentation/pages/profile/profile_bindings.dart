@@ -4,6 +4,8 @@ import 'profile_controller.dart';
 class ProfileBindings implements Bindings {
   @override
   void dependencies() {
-    Get.put(ProfileController());
+    Get.put(ProfileController(
+      authController: Get.find(),
+    ));
   }
 }
