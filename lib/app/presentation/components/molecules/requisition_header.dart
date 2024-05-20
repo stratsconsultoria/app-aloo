@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../domain/entities/requisitions/requisitions.dart';
@@ -33,7 +34,7 @@ class RequisitionHeader extends StatelessWidget {
           CustomListTile(
             title: requisition.postoAtual.toUpperCase(),
             subTitle: 'Posto',
-            icon: const FaIcon(FontAwesomeIcons.layerGroup),
+            icon: const FaIcon(FontAwesomeIcons.layerGroup, size: 18),
           ),
           const SizedBox(height: 8),
           Row(
@@ -68,11 +69,14 @@ class RequisitionHeader extends StatelessWidget {
                   icon: const FaIcon(FontAwesomeIcons.calendarWeek),
                 ),
               ),
-              Expanded(
-                child: CustomListTile(
-                  title: requisition.fechamento,
-                  subTitle: 'Encerramento',
-                  icon: const FaIcon(FontAwesomeIcons.calendarWeek),
+              Visibility(
+                visible: requisition.fechamento != " ",
+                child: Expanded(
+                  child: CustomListTile(
+                    title: requisition.fechamento,
+                    subTitle: 'Encerramento',
+                    icon: const FaIcon(FontAwesomeIcons.calendarWeek),
+                  ),
                 ),
               ),
             ],

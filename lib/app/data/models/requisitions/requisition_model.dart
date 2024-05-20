@@ -28,8 +28,8 @@ class RequisitionModel {
       abertura: json['abertura'],
       fechamento: json['fechamento'],
       solicitante: json['solicitante'],
-      status: json['status'],
-      postoAtual: json['posto_atual'],
+      status: json['status'] ?? "indisponível",
+      postoAtual: json['posto_atual'] ?? "",
       circuito: json['circuito'],
     );
   }

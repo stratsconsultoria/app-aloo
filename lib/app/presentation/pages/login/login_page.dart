@@ -80,7 +80,7 @@ class LoginPage extends GetView<LoginController> {
               ),
               const SizedBox(height: 48.0),
               Text(
-                'Esqueceu sua senha? Clique aqui e cadastre-se.',
+                'Esqueceu sua senha? Clique aqui e recupere.',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: Theme.of(context).colorScheme.surface,
                     ),

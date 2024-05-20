@@ -74,7 +74,7 @@ class ProfilePage extends GetView<ProfileController> {
             CustomButtom(
               label: 'Sair do app',
               type: 'delete',
-              onTap: () => {},
+              onTap: () => controller.authController.logout(),
             ),
           ],
         ),
