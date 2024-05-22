@@ -15,16 +15,16 @@ class RequisitionDetailsController extends GetxController {
     required this.requisitionDetailsUsecase,
   });
 
-  Rx<RequisitionDetailsEntity> requisitionDetails = const RequisitionDetailsEntity(
+  Rx<RequisitionDetailsEntity> requisitionDetails = RequisitionDetailsEntity(
     atendimento: RequisitionEntity(
       id: 'id',
       protocolo: 'protocolo',
-      abertura: 'abertura',
-      fechamento: 'fechamento',
       solicitante: '',
       status: '',
       postoAtual: 'postoAtual',
       circuito: 'circuito',
+      fechamento: DateTime.now(),
+      abertura: DateTime.now(),
     ),
     observacoes: [],
   ).obs;

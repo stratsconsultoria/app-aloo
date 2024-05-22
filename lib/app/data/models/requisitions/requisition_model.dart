@@ -1,14 +1,14 @@
-import 'package:app_aloo/app/domain/entities/entities.dart';
+import '../../../domain/entities/entities.dart';
 
 class RequisitionModel {
   String id;
   String protocolo;
-  String abertura;
-  String fechamento;
   String solicitante;
   String status;
   String postoAtual;
   String circuito;
+  DateTime abertura;
+  DateTime? fechamento;
 
   RequisitionModel({
     required this.id,
@@ -25,12 +25,12 @@ class RequisitionModel {
     return RequisitionModel(
       id: json['id'],
       protocolo: json['protocolo'],
-      abertura: json['abertura'],
-      fechamento: json['fechamento'],
       solicitante: json['solicitante'],
       status: json['status'] ?? "indisponível",
       postoAtual: json['posto_atual'] ?? "",
       circuito: json['circuito'],
+      abertura: DateTime.parse(json['abertura']),
+      fechamento: json['fechamento'] != " " ? DateTime.parse(json['fechamento']) : null,
     );
   }
 
@@ -50,11 +50,11 @@ class RequisitionModel {
   RequisitionEntity toEntity() => RequisitionEntity(
         id: id,
         protocolo: protocolo,
-        abertura: abertura,
-        fechamento: fechamento,
         solicitante: solicitante,
         status: status,
         postoAtual: postoAtual,
         circuito: circuito,
+        abertura: abertura,
+        fechamento: fechamento,
       );
 }

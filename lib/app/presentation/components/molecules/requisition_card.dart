@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/shared/utils/utils.dart';
 import '../../../domain/entities/entities.dart';
 import '../../app_routes.dart';
 import '../components.dart';
@@ -61,7 +62,7 @@ class RequisitionCard extends StatelessWidget {
               icon: const FaIcon(FontAwesomeIcons.circleInfo),
             ),
             CustomListTile(
-              title: requisition.abertura,
+              title: formattedDate(requisition.abertura),
               subTitle: 'Data de abertura',
               icon: const FaIcon(FontAwesomeIcons.calendarDays),
             ),
