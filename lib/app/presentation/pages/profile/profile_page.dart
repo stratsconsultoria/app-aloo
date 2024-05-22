@@ -1,6 +1,7 @@
-import 'package:app_aloo/app/presentation/components/atoms/atoms.dart';
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../components/atoms/atoms.dart';
 import 'profile_controller.dart';
 
 class ProfilePage extends GetView<ProfileController> {

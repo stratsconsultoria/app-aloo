@@ -12,5 +12,6 @@ class Api {
   static const listCompanies = 'listEmpresas.php';
   static const ultimosAtendimentos = 'listUltimosAtendimentos.php';
   static const listRequisitions = 'listAtendimentos.php';
+  static const listCircuits = 'listCircuitos.php';
   static const requisitionDetails = 'detailAtendimentos.php';
 }
