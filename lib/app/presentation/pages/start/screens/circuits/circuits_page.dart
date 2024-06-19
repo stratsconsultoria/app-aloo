@@ -25,7 +25,7 @@ class CircuitsPage extends GetView<CircuitsController> {
           children: [
             const SizedBox(height: 16),
             Text(
-              'Atendimentos recentemente abertos',
+              'Circuitos',
               style: Theme.of(context).textTheme.titleSmall,
             ),
             const SizedBox(height: 16),

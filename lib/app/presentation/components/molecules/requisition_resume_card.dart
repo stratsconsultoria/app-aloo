@@ -7,10 +7,10 @@ import '../../../domain/entities/entities.dart';
 import '../../app_routes.dart';
 import '../components.dart';
 
-class RequisitionCard extends StatelessWidget {
+class RequisitionResumeCard extends StatelessWidget {
   final RequisitionEntity requisition;
 
-  const RequisitionCard({
+  const RequisitionResumeCard({
     super.key,
     required this.requisition,
   });
@@ -23,8 +23,9 @@ class RequisitionCard extends StatelessWidget {
         arguments: requisition.id,
       ),
       child: Container(
+        width: Get.width * 0.6,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        margin: const EdgeInsets.symmetric(vertical: 8),
+        margin: const EdgeInsets.symmetric(horizontal: 8),
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(10),
@@ -60,29 +61,15 @@ class RequisitionCard extends StatelessWidget {
               subTitle: 'Protocolo',
               icon: const FaIcon(FontAwesomeIcons.circleInfo),
             ),
-            const SizedBox(height: 8),
             CustomListTile(
               title: formattedDate(requisition.abertura),
               subTitle: 'Data de abertura',
               icon: const FaIcon(FontAwesomeIcons.calendarDays),
             ),
-            const SizedBox(height: 8),
-            CustomListTile(
-              title: requisition.postoAtual.toUpperCase(),
-              subTitle: 'Posto Atual',
-              icon: const FaIcon(
-                FontAwesomeIcons.layerGroup,
-                size: 18,
-              ),
-            ),
-            const SizedBox(height: 8),
             CustomListTile(
               title: requisition.status,
               subTitle: 'Status',
-              icon: const FaIcon(
-                FontAwesomeIcons.gears,
-                size: 18,
-              ),
+              icon: const FaIcon(FontAwesomeIcons.gears),
             ),
           ],
         ),

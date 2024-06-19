@@ -19,7 +19,7 @@ class HomePage extends GetView<HomeController> {
             onTap: () => Get.toNamed(Routes.company),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              margin: const EdgeInsets.only(bottom: 16),
+              margin: const EdgeInsets.only(bottom: 16, left: 16, right: 16),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(10),
@@ -70,7 +70,7 @@ class HomePage extends GetView<HomeController> {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
-                      return RequisitionCard(
+                      return RequisitionResumeCard(
                         requisition: controller.requisitions[index],
                       );
                     },

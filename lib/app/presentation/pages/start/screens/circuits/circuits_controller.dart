@@ -6,7 +6,6 @@ import '../../../../controllers/auth_controller.dart';
 
 class CircuitsController extends GetxController {
   AuthController authController;
-
   CircuitsListUsecase listCircuits;
 
   CircuitsController({

@@ -10,17 +10,17 @@ class HomeBindings implements Bindings {
   void dependencies() {
     final IHttpClient httpClient = Get.find<IHttpClient>();
 
-    final RequisitionsListRepository requisitionsListRepo = RequisitionsListRepository(
+    final LastRequisitionsRepository lastRequisitionsRepo = LastRequisitionsRepository(
       httpClient: httpClient,
     );
 
-    Get.lazyPut<RequisitionsListUsecase>(() => IRequisitionsListUsecase(
-          repository: requisitionsListRepo,
+    Get.lazyPut<LastRequisitionsUsecase>(() => ILastRequisitionsUsecase(
+          repository: lastRequisitionsRepo,
         ));
 
     Get.put(HomeController(
       authController: Get.find(),
-      listRequisitions: Get.find(),
+      lastRequisitions: Get.find(),
     ));
   }
 }
