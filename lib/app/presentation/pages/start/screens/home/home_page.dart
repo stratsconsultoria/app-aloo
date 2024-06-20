@@ -11,6 +11,13 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.add,
+          color: Theme.of(context).scaffoldBackgroundColor,
+        ),
+      ),
       appBar: AppBar(
         toolbarHeight: 130,
         flexibleSpace: CustomAppBar(
@@ -75,6 +82,30 @@ class HomePage extends GetView<HomeController> {
                       );
                     },
                   ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 32),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              'Avisos',
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+          ),
+          const SizedBox(height: 16),
+          Obx(
+            () => Visibility(
+              visible: controller.alertsIsLoading.isFalse,
+              replacement: const Center(child: CircularProgressIndicator()),
+              child: Obx(
+                () => ListView.builder(
+                  itemCount: controller.alerts.length,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext context, int index) {
+                    return AlertBox(alert: controller.alerts[index]);
+                  },
                 ),
               ),
             ),

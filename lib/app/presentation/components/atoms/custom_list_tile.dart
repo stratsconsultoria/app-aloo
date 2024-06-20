@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class CustomListTile extends StatelessWidget {
   final String title;
   final String subTitle;
-  final Widget icon;
+  final Widget? icon;
+  final Widget? sufixIon;
 
   const CustomListTile({
     required this.title,
     required this.subTitle,
-    required this.icon,
+    this.icon,
+    this.sufixIon,
     super.key,
   });
 
@@ -16,7 +18,7 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        icon,
+        icon ?? const SizedBox(),
         const SizedBox(width: 8),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,6 +36,8 @@ class CustomListTile extends StatelessWidget {
             ),
           ],
         ),
+        const Spacer(),
+        sufixIon ?? const SizedBox(),
       ],
     );
   }

@@ -14,13 +14,20 @@ class HomeBindings implements Bindings {
       httpClient: httpClient,
     );
 
+    final AlertsRepository alertsRepo = AlertsRepository(
+      httpClient: httpClient,
+    );
+
     Get.lazyPut<LastRequisitionsUsecase>(() => ILastRequisitionsUsecase(
           repository: lastRequisitionsRepo,
         ));
 
+    Get.lazyPut<AlertsUsecase>(() => IAlertsUsecase(repository: alertsRepo));
+
     Get.put(HomeController(
       authController: Get.find(),
       lastRequisitions: Get.find(),
+      alertsUsecase: Get.find(),
     ));
   }
 }
