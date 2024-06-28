@@ -18,6 +18,7 @@ class CompanyCard extends StatelessWidget {
     Future<void> setCurrentCompany() async {
       await CacheAdapter().writeStorage(CacheString.companyId, company.id);
       await CacheAdapter().writeStorage(CacheString.companyName, company.nome);
+      await CacheAdapter().writeStorage(CacheString.companyCNPJ, company.cnpj);
       Get.offAllNamed(Routes.start);
     }
 

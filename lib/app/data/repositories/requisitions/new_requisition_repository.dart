@@ -1,54 +1,48 @@
 import 'package:dartz/dartz.dart';
 
 import '../../../../../core/shared/constants/constants.dart';
-import '../../../domain/entities/entities.dart';
 import '../../../domain/helpers/failures.dart';
 import '../../../domain/repositories/repositories.dart';
 import '../../infra/cache/cache.dart';
 import '../../infra/http/http_client.dart';
 import '../../infra/http/http_error.dart';
-import '../../models/models.dart';
 
-class CircuitsListRepository implements ICircuitsListRepository {
+class NewRequisitionRepository implements INewRequisitionRepository {
   final IHttpClient httpClient;
 
-  CircuitsListRepository({
+  NewRequisitionRepository({
     required this.httpClient,
   });
 
   @override
-  Future<Either<Failure, List<CircuitEntity>>> list({String? cnpj}) async {
+  Future<Either<Failure, bool>> post({
+    required String circuit,
+    required String description,
+    required String type,
+  }) async {
     Map<String, String> header = {
       'content-type': 'application/json',
       'accept': 'application/json',
     };
 
     String? authToken = await CacheAdapter().read(CacheString.authTokenKey);
-    String apiEndpoint = Api.listCircuits;
 
     Map<String, dynamic> body = {
       "token": authToken,
-      "page": 1,
+      "circuito": circuit,
+      "descricao": description,
+      "tipo": type,
     };
-
-    if (cnpj != null) {
-      body['cnpj'] = cnpj;
-      apiEndpoint = Api.listCircuitsByCNPJ;
-    }
 
     try {
       final httpResponse = await httpClient.request(
         method: 'post',
-        endpoint: apiEndpoint,
+        endpoint: Api.newRequisition,
         body: body,
         headers: header,
       );
       if (httpResponse['success'] == 1) {
-        List<CircuitEntity> circuits = <CircuitEntity>[];
-        circuits = (httpResponse['circuitos'] as List<dynamic>)
-            .map((e) => CircuitModel.fromJson(e as Map<String, dynamic>).toEntity())
-            .toList();
-        return Right(circuits);
+        return const Right(true);
       } else if (httpResponse.isEmpty) {
         return const Left(ServerFailure(
           message: 'houve um erro',

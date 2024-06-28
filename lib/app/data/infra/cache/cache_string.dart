@@ -3,4 +3,5 @@ abstract class CacheString {
   static const String userKey = 'USER_KEY_ABRACO';
   static const String companyId = 'COMPANY_ID_KEY';
   static const String companyName = 'COMPANY_NAME';
+  static const String companyCNPJ = 'COMPANY_CNPJ';
 }

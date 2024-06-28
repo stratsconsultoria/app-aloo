@@ -4,5 +4,5 @@ import '../../entities/entities.dart';
 import '../../helpers/failures.dart';
 
 abstract class ICircuitsListRepository {
-  Future<Either<Failure, List<CircuitEntity>>> list();
+  Future<Either<Failure, List<CircuitEntity>>> list({String? cnpj});
 }

@@ -18,6 +18,14 @@ class HomeBindings implements Bindings {
       httpClient: httpClient,
     );
 
+    final CircuitsListRepository circuitsListRepo = CircuitsListRepository(
+      httpClient: httpClient,
+    );
+
+    Get.lazyPut<CircuitsListUsecase>(() => ICircuitsListUsecase(
+          repository: circuitsListRepo,
+        ));
+
     Get.lazyPut<LastRequisitionsUsecase>(() => ILastRequisitionsUsecase(
           repository: lastRequisitionsRepo,
         ));
@@ -28,6 +36,7 @@ class HomeBindings implements Bindings {
       authController: Get.find(),
       lastRequisitions: Get.find(),
       alertsUsecase: Get.find(),
+      listCircuits: Get.find(),
     ));
   }
 }

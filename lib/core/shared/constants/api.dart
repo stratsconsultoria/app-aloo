@@ -13,7 +13,9 @@ class Api {
   static const lastRequisitions = 'listUltimosAtendimentos.php';
   static const listRequisitions = 'listAtendimentos.php';
   static const listCircuits = 'listCircuitos.php';
+  static const listCircuitsByCNPJ = 'listCircuitosCnpj.php';
   static const requisitionDetails = 'detailAtendimentos.php';
+  static const newRequisition = 'abrirChamado.php';
 
   // notification
   static const listAlerts = 'listAvisos.php';

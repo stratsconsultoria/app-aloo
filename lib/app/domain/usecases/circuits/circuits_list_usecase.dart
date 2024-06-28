@@ -4,7 +4,7 @@ import '../../entities/entities.dart';
 import '../../helpers/failures.dart';
 
 abstract class CircuitsListUsecase {
-  Future<List<CircuitEntity>> list();
+  Future<List<CircuitEntity>> list({String? cnpj});
 }
 
 class ICircuitsListUsecase implements CircuitsListUsecase {
@@ -13,8 +13,8 @@ class ICircuitsListUsecase implements CircuitsListUsecase {
   ICircuitsListUsecase({required this.repository});
 
   @override
-  Future<List<CircuitEntity>> list() async {
-    final result = await repository.list();
+  Future<List<CircuitEntity>> list({String? cnpj}) async {
+    final result = await repository.list(cnpj: cnpj);
     final extract = result.fold((failure) => failure, (success) => success);
     if (extract is List<CircuitEntity>) {
       return extract;

@@ -12,7 +12,7 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => controller.newRequisition(context),
         child: Icon(
           Icons.add,
           color: Theme.of(context).scaffoldBackgroundColor,
