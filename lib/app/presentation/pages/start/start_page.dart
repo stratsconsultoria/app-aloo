@@ -10,6 +10,7 @@ class StartPage extends GetView<StartController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: Obx(
         () => controller.screens[controller.selectedScreen.value],
       ),

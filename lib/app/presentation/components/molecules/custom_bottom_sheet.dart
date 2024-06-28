@@ -12,30 +12,37 @@ void customBottomSheet(
     ),
     isScrollControlled: true,
     builder: (BuildContext context) {
-      return ClipRRect(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(10.0)),
-        child: Container(
-          height: Get.height * 0.8,
-          width: Get.width,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          color: Theme.of(context).cardColor,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Center(
-                child: Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10.0),
-                  height: 5.0,
-                  width: 100.0,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+      return SizedBox(
+        height: Get.height * 0.8,
+        child: Scaffold(
+          resizeToAvoidBottomInset: true,
+          body: ClipRRect(
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(10.0)),
+            child: Container(
+              width: Get.width,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              color: Theme.of(context).cardColor,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Center(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(vertical: 10.0),
+                        height: 5.0,
+                        width: 100.0,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                    body,
+                  ],
                 ),
               ),
-              body,
-            ],
+            ),
           ),
         ),
       );
