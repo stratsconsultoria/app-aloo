@@ -16,6 +16,8 @@ class Api {
   static const listCircuitsByCNPJ = 'listCircuitosCnpj.php';
   static const requisitionDetails = 'detailAtendimentos.php';
   static const newRequisition = 'abrirChamado.php';
+  static const listAnexos = 'listAnexos.php';
+  static const addAnexos = 'addArquivos.php';
 
   // notification
   static const listAlerts = 'listAvisos.php';

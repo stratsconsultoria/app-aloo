@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../components.dart';
-
 class CustomButtom extends StatelessWidget {
   final void Function() onTap;
   final String label, type;
   final bool disable;
   final bool small;
   final bool isLoading;
-  final String? icon;
+  final Widget? icon;
 
   const CustomButtom({
     super.key,
@@ -64,9 +62,9 @@ class CustomButtom extends StatelessWidget {
           children: [
             Visibility(
               visible: icon != null,
-              child: CustomIcon(
-                icon: icon ?? '',
-                color: Theme.of(context).colorScheme.onPrimary,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: icon ?? const SizedBox(),
               ),
             ),
             Text(

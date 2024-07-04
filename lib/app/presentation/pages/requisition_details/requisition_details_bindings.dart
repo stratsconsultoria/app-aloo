@@ -14,14 +14,23 @@ class RequisitionDetailsBindings implements Bindings {
       httpClient: httpClient,
     );
 
-    Get.lazyPut<RequisitionDetailsUsecase>(() => IRequisitionsDetailsUsecase(
-          repository: requisitionDetailsRepo,
-        ));
+    final AnexosRepository anexosRepo = AnexosRepository(
+      httpClient: httpClient,
+    );
+
+    Get.lazyPut<RequisitionDetailsUsecase>(
+      () => IRequisitionsDetailsUsecase(repository: requisitionDetailsRepo),
+    );
+
+    Get.lazyPut<AnexosUsecase>(
+      () => IAnexosUsecase(repository: anexosRepo),
+    );
 
     Get.put(RequisitionDetailsController(
       requisitionId: Get.arguments,
       authController: Get.find(),
       requisitionDetailsUsecase: Get.find(),
+      anexosUsecase: Get.find(),
     ));
   }
 }
